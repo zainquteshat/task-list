@@ -1,0 +1,8 @@
+@import "./styles/reset.scss";
+@import "./styles/_variables.module.scss";
+body {
+  background-color: $background-color;
+  * {
+    font-family: "Merriweather Sans", sans-serif;
+  }
+}
