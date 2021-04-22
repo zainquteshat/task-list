@@ -2,9 +2,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
+  align-items: flex-start;
 }
 .TaskTitle {
   width: 85%;
   text-align: left;
   margin-left: 10px;
+}
+
+.Icon {
+  cursor: pointer;
 }

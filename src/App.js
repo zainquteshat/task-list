@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import AddTask from "./Components/AddTask/AddTask";
 
@@ -9,6 +9,16 @@ import classes from "./App.module.scss";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    if (window.localStorage["task-list"]) {
+      setTasks(JSON.parse(window.localStorage.getItem("task-list")));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("task-list", JSON.stringify(tasks));
+  }, [tasks]);
 
   const userInputHandler = (taskItem) => {
     setTasks([...tasks, taskItem]);
