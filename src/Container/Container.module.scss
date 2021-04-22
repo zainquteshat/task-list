@@ -1,23 +1,23 @@
-@import "../styles/_variables.module.scss";
+// @import "../styles/_variables.module.scss";
 
-.Container {
-  display: block;
-  // margin: auto;
-  background-color: $white-background-color;
-  border-radius: 5px;
-  width: 365px;
-  position: absolute;
-  top: 35vh;
-  left: 35%;
-  padding: 20px 0;
-}
+// .Container {
+//   display: block;
+//   // margin: auto;
+//   background-color: $white-background-color;
+//   border-radius: 5px;
+//   width: 365px;
+//   position: absolute;
+//   top: 35vh;
+//   left: 35%;
+//   padding: 20px 0;
+// }
 
-.SeparatingLine {
-  display: block;
-  width: 100%;
-  border: 1px $background-color solid;
-}
+// .SeparatingLine {
+//   display: block;
+//   width: 100%;
+//   border: 1px $background-color solid;
+// }
 
-.Buttons {
-  padding: 20px 0 0 20px;
-}
+// .Buttons {
+//   padding: 20px 0 0 20px;
+// }

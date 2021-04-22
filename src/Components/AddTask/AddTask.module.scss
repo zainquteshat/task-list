@@ -1,6 +1,7 @@
 @import "../../styles/_variables.module.scss";
-.AddItem {
-  margin-bottom: 15px;
+.AddTask {
+  border-bottom: 2px solid $background-color;
+  padding-bottom: 15px;
 }
 
 .taskInput {

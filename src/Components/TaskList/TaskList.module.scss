@@ -1,4 +1,7 @@
+@import "../../styles/variables.module";
+
 .TaskList {
   padding: 20px 16.5px;
   text-align: center;
+  border-bottom: 2px solid $background-color;
 }

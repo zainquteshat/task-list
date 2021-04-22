@@ -1,0 +1,10 @@
+.Task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.TaskTitle {
+  width: 85%;
+  text-align: left;
+  margin-left: 10px;
+}
