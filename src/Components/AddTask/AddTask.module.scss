@@ -13,6 +13,9 @@
   background-color: transparent;
   padding: 0 16.5px;
   box-sizing: border-box;
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 ::placeholder {

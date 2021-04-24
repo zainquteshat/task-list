@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./AddTask.module.scss";
 
-const AddItem = ({ userInputHandler }) => {
+const AddItem = ({ userInputHandler, selectedFilterType }) => {
   const [taskTitle, setTaskTitle] = useState("");
 
   const inputCangeHandler = (event) => {
@@ -20,6 +20,7 @@ const AddItem = ({ userInputHandler }) => {
       setTaskTitle("");
     }
   };
+  const isCompletedFilterTypeSelected = selectedFilterType === "completed";
   return (
     <div className={classes.AddTask}>
       <form onSubmit={submitHandler}>
@@ -28,6 +29,12 @@ const AddItem = ({ userInputHandler }) => {
           className={classes.taskInput}
           onChange={inputCangeHandler}
           value={taskTitle}
+          title={
+            isCompletedFilterTypeSelected
+              ? "You cannot add items when Completed filter is selected"
+              : ""
+          }
+          disabled={isCompletedFilterTypeSelected ? true : false}
         />
       </form>
     </div>

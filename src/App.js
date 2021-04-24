@@ -42,7 +42,10 @@ const App = () => {
 
   return (
     <div className={classes.App}>
-      <AddTask userInputHandler={userInputHandler} />
+      <AddTask
+        userInputHandler={userInputHandler}
+        selectedFilterType={selectedFilterType}
+      />
       <TaskList
         tasks={tasks}
         deleteTaskHandler={deleteTaskHandler}
