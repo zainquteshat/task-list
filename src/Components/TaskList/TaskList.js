@@ -1,12 +1,28 @@
 import classes from "./TaskList.module.scss";
 import Task from "./Task/Task";
 
-const TaskList = ({ tasks, deleteTaskHandler }) => {
+const TaskList = ({
+  tasks,
+  deleteTaskHandler,
+  markCompletedHandler,
+  selectedFilterType,
+}) => {
+  const filteredTasks = () => {
+    switch (selectedFilterType) {
+      case "open":
+        return tasks.filter((task) => !task.completed);
+      case "completed":
+        return tasks.filter((task) => task.completed);
+      default:
+        return tasks;
+    }
+  };
+
   const renderTasks = () => {
     if (tasks.length > 0) {
       return (
         <ul>
-          {tasks.map(({ title, id, completed }) => {
+          {filteredTasks().map(({ title, id, completed }) => {
             return (
               <Task
                 taskTitle={title}
@@ -14,6 +30,7 @@ const TaskList = ({ tasks, deleteTaskHandler }) => {
                 id={id}
                 completed={completed}
                 deleteTaskHandler={deleteTaskHandler}
+                markCompletedHandler={markCompletedHandler}
               />
             );
           })}

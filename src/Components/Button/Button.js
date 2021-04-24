@@ -1,8 +1,19 @@
 import classes from "./Button.module.scss";
-const Button = (props) => {
+const Button = ({
+  title,
+  filterType,
+  filterSelectedHandler,
+  selectedFilterType,
+}) => {
+  const isCurrentFilterSelected = selectedFilterType === filterType;
   return (
-    <button className={`${classes.Button} ${classes.Active}`}>
-      {props.title}
+    <button
+      className={`${classes.Button} ${
+        isCurrentFilterSelected ? classes.Active : ""
+      } `}
+      onClick={() => filterSelectedHandler(filterType)}
+    >
+      {title}
     </button>
   );
 };

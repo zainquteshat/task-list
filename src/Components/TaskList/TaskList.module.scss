@@ -1,7 +1,10 @@
 @import "../../styles/variables.module";
 
 .TaskList {
+  display: block;
   padding: 20px 16.5px;
   text-align: center;
   border-bottom: 2px solid $background-color;
+  height: 150px;
+  overflow-y: scroll;
 }
