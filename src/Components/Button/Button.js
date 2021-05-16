@@ -1,17 +1,15 @@
 import classes from "./Button.module.scss";
-const Button = ({
-  title,
-  filterType,
-  filterSelectedHandler,
-  selectedFilterType,
-}) => {
-  const isCurrentFilterSelected = selectedFilterType === filterType;
+import TaskContext from "../../Store/TaskContext";
+import { useContext } from "react";
+const Button = ({ title, filterType }) => {
+  const taskCtx = useContext(TaskContext);
+  const isCurrentFilterSelected = taskCtx.selectedFilterType === filterType;
   return (
     <button
       className={`${classes.Button} ${
         isCurrentFilterSelected ? classes.Active : ""
       } `}
-      onClick={() => filterSelectedHandler(filterType)}
+      onClick={() => taskCtx.filterSelectedHandler(filterType)}
     >
       {title}
     </button>

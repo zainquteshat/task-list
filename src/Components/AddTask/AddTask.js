@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import classes from "./AddTask.module.scss";
+import TaskContext from "../../Store/TaskContext";
 
-const AddItem = ({ userInputHandler, selectedFilterType }) => {
+const AddItem = () => {
+  const taskCtx = useContext(TaskContext);
+
   const [taskTitle, setTaskTitle] = useState("");
 
   const inputCangeHandler = (event) => {
@@ -16,11 +19,12 @@ const AddItem = ({ userInputHandler, selectedFilterType }) => {
         title: taskTitle,
         completed: false,
       };
-      userInputHandler(taskItem);
+      taskCtx.userInputHandler(taskItem);
       setTaskTitle("");
     }
   };
-  const isCompletedFilterTypeSelected = selectedFilterType === "completed";
+  const isCompletedFilterTypeSelected =
+    taskCtx.selectedFilterType === "completed";
   return (
     <div className={classes.AddTask}>
       <form onSubmit={submitHandler}>

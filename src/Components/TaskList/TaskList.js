@@ -1,37 +1,30 @@
+import { useContext } from "react";
+import TaskContext from "../../Store/TaskContext";
+
 import classes from "./TaskList.module.scss";
 import Task from "./Task/Task";
 
-const TaskList = ({
-  tasks,
-  deleteTaskHandler,
-  markCompletedHandler,
-  selectedFilterType,
-}) => {
+const TaskList = () => {
+  const taskCtx = useContext(TaskContext);
+
   const filteredTasks = () => {
-    switch (selectedFilterType) {
+    switch (taskCtx.selectedFilterType) {
       case "open":
-        return tasks.filter((task) => !task.completed);
+        return taskCtx.tasks.filter((task) => !task.completed);
       case "completed":
-        return tasks.filter((task) => task.completed);
+        return taskCtx.tasks.filter((task) => task.completed);
       default:
-        return tasks;
+        return taskCtx.tasks;
     }
   };
 
   const renderTasks = () => {
-    if (tasks.length > 0) {
+    if (taskCtx.tasks.length > 0) {
       return (
         <ul>
           {filteredTasks().map(({ title, id, completed }) => {
             return (
-              <Task
-                taskTitle={title}
-                key={id}
-                id={id}
-                completed={completed}
-                deleteTaskHandler={deleteTaskHandler}
-                markCompletedHandler={markCompletedHandler}
-              />
+              <Task taskTitle={title} key={id} id={id} completed={completed} />
             );
           })}
         </ul>
